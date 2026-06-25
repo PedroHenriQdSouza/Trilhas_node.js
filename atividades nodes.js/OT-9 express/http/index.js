@@ -12,7 +12,6 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Array inicial com 6 carros
 let carros = [
     { nome: "Fiesta", preco: 129000, marca: "Ford" },
     { nome: "Gol", preco: 29000, marca: "Vokwagem" },
@@ -22,27 +21,25 @@ let carros = [
     { nome: "HB20", preco: 12500, marca: "Hyundai" }
 ];
 
-// Rota inicial
 app.get('/', (req, res) => {
-    res.send('<h3>Rotas no Express</h3><p>Rota "/"</p>');
+    res.send('<h3>Criar seu Array de lista de carros personalizados com no mínimo 6 modelos com nome, preço e marca e depois adicionar mais 3 modelos diferentes dos que já existem e realizar edição em 2 modelos e exclusão de pelo menos 2 modelos.</p>');
 });
 
-// Sobre
+
 app.get('/sobre', (req, res) => {
     res.send('<h1>Rotas no Express</h1><p>Rota /sobre</p>');
 });
 
-// Usuário
 app.get('/user/:name', (req, res) => {
     res.send(`Usuário: ${req.params.name}`);
 });
 
-// Listar todos os carros
+/* http://localhost:3000/carros */
 app.get('/carros', (req, res) => {
     res.json(carros);
 });
 
-// Buscar carro por índice
+/* http://localhost:3000/carros/7 */
 app.get('/carros/:id', (req, res) => {
     const id = parseInt(req.params.id);
 
@@ -64,7 +61,7 @@ app.post('/carros', (req, res) => {
     res.status(201).json(novoCarro);
 });
 
-// Editar carro
+/* http://localhost:3000/carros/update/0 */
 app.put('/carros/update/:index', (req, res) => {
     const index = parseInt(req.params.index);
 
@@ -79,7 +76,7 @@ app.put('/carros/update/:index', (req, res) => {
     res.json(carros[index]);
 });
 
-// Excluir carro
+/* localhost:3000/carros/delete/0 */
 app.delete('/carros/delete/:id', (req, res) => {
     const id = parseInt(req.params.id);
 
