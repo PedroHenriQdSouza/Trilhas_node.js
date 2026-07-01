@@ -1,0 +1,32 @@
+1. O que é Node.js e por que é popular no desenvolvimento web?
+
+
+2. Qual é a diferença entre o Node.js e outras tecnologias de servidor, como o
+Apache?
+
+
+3. Como você inicia um projeto Node.js usando o npm?
+
+
+4. O que é o Express.js e qual é o seu papel no desenvolvimento web com
+Node.js?
+
+
+5. Explique o conceito de middleware no contexto do Express.js.
+
+
+6. Como você roteia solicitações HTTP em um aplicativo Express?
+
+
+7. O que é o middleware de análise de corpo (body-parser) e por que é útil em
+um aplicativo Express?
+
+
+8. Quais são os principais métodos HTTP e como eles são usados em rotas
+Express?
+
+
+9. Como você lida com erros em um aplicativo Express?
+
+
+10. O que é uma API RESTful e como o Express pode ser usado para criar uma?
