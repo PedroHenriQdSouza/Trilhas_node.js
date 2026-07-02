@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+    <link href="/public/style.css" rel="stylesheet" />
+
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="tarefas">
+            <h3>TODOLIST NODE</h3>
+            <form class="d-flex" method="post" action="/" onsubmit="return validarFormulario()">
+                <input class="form-control" type="text" class="form-control" name="task" />
+                <input type="submit" name="acao" class="btn btn-primary" value="Inserir" />
+            </form>
+
+            <% for (let i=0; i < taskList.length; i++){ %>
+                <p>
+                    <%= taskList[i] %> | <a href="/deletar/<%= i %>"><i class="bi bi-trash"></i></a>
+                </p>
+                <% } %>
+        </div>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </div>
+</body>
+<script>
+    function validarFormulario() {
+        var task = document.getElementsByName('task')[0].value;
+        if (task.trim() === '') {
+            swal.fire({
+                icon:'error',
+                title: 'Oops!',
+                text:'Por favor, insira uma tarefa.',
+            }); 
+            return false; // Impede o envio do formulário
+        }
+        return true; // Permite o envio do formulário
+    }
+</script>
+
+</html>
