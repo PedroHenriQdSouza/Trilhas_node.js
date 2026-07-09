@@ -9,13 +9,14 @@ const buscarUfsPorNome = (nomeUf) => {
 /* app.get('/ufs', (req, res) => {
     res.json(colecaoUf);
 }); */
-app.get('/ufs', (req, res) => {
+/* busca por nome */
+app.get('/ufs', (req, res) => { /* caso a UF não seja encontrada */
     const nomeUf = req.query.busca;
     const resultado = nomeUf ? buscarUfsPorNome(nomeUf) : colecaoUf;
     if (resultado.length > 0) {
         res.json(resultado);
     } else {
-        res.status(404).send({"erro": "UF não encontrada"});
+        res.status(404).send({ "erro": "UF não encontrada" });
     }
 
 });
